@@ -20,6 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="remove some post.&#10;add keytool command line usage.">
+      <change afterPath="$PROJECT_DIR$/source/_posts/前端面试刷题.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/前端面试刷题/csr.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/前端面试刷题/ssr 同构.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/前端面试刷题/ssr.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/_posts/前端面试刷题" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -57,6 +61,9 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/_posts/前端面试刷题" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\work_space\ahayaSKBINCN.github.io\source\_posts\自定义命令" />
       <recent name="E:\work_space\ahayaSKBINCN.github.io\source\_posts" />
@@ -117,7 +124,9 @@
       <workItem from="1607513445373" duration="4630000" />
       <workItem from="1610677360527" duration="4345000" />
       <workItem from="1610683107954" duration="596000" />
-      <workItem from="1610685398628" duration="3498000" />
+      <workItem from="1610685398628" duration="3589000" />
+      <workItem from="1621224467399" duration="6810000" />
+      <workItem from="1621339349727" duration="2299000" />
     </task>
     <task id="LOCAL-00001" summary="fix images">
       <created>1607515308728</created>
@@ -140,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610688794143</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="remove some post.&#10;add keytool command line usage.">
+      <created>1610690197577</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610690197578</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
