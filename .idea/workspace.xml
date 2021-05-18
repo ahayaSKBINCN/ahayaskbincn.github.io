@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="remove some post.&#10;add keytool command line usage.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +122,7 @@
       <workItem from="1610683107954" duration="596000" />
       <workItem from="1610685398628" duration="3589000" />
       <workItem from="1621224467399" duration="6810000" />
-      <workItem from="1621339349727" duration="2803000" />
+      <workItem from="1621339349727" duration="3308000" />
     </task>
     <task id="LOCAL-00001" summary="fix images">
       <created>1607515308728</created>
@@ -166,7 +166,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621347878536</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="删除 .gitignore 中的 lock.file 以修复 github Dependabot alerts: can't update vulnerable dependencies without a lockfile">
+      <created>1621348237004</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1621348237004</updated>
+    </task>
+    <task id="LOCAL-00008" summary="删除 .gitignore 中的 lock.file 以修复 github Dependabot alerts: can't update vulnerable dependencies without a lockfile">
+      <created>1621348354434</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621348354434</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +204,7 @@
     <MESSAGE value="remove some post.&#10;add keytool command line usage." />
     <MESSAGE value="添加 前端面试刷题" />
     <MESSAGE value="修改文件名称" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改文件名称" />
+    <MESSAGE value="删除 .gitignore 中的 lock.file 以修复 github Dependabot alerts: can't update vulnerable dependencies without a lockfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除 .gitignore 中的 lock.file 以修复 github Dependabot alerts: can't update vulnerable dependencies without a lockfile" />
   </component>
 </project>
