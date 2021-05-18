@@ -186,14 +186,14 @@ module.exports = HelloPlugin
 7. react ssr 的使用场景
 >- <strong>客户端渲染（CSR）</strong>页面初始加载的 HTML 页面中无网页展示内容，需要加载执行JavaScript 文件中的 React 代码，
   > 通过 JavaScript 渲染生成页面，同时，JavaScript 代码会完成页面交互事件的绑定
-> ![Client Side Render](前端面试刷题/csr.jpeg "Client Side Render")
+> ![Client Side Render](source/_posts/FontEnd/csr.jpeg "Client Side Render")
 >- <strong>服务端渲染（SSR）</strong>用户请求服务器，服务器上直接生成 HTML 内容并返回给浏览器。服务器端渲染来，页面的内容是由 Server 端生成的。
    > 一般来说，服务器端渲染的页面交互能力有限，如果要实现复杂交互，还是要通过引入 JavaScript 文件来辅助实现。
    > 服务器端渲染这个概念，适用于任何后端语言。
-> ![SSR](前端面试刷题/ssr.png "Server Side Render")
+> ![SSR](source/_posts/FontEnd/ssr.png "Server Side Render")
 > - <strong>同构</strong> 同构这个概念存在于 Vue，React 这些新型的前端框架中，同构实际上是客户端渲染和服务器端渲染的一个整合。
     > 我们把页面的展示内容和交互写在一起，让代码执行两次。在服务器端执行一次，用于实现服务器端渲染，在客户端再执行一次，用于接管页面交互，详细流程可参考下图
-> ![同构](前端面试刷题/ssr%20同构.jpeg "同构")
+> ![同构](source/_posts/FontEnd/ssr%20同构.jpeg "同构")
 > - <strong>同构的优点（为什么会出现同构技术）</strong>
 >   + CSR 项目的 TTFP（Time To First Page）时间比较长，参考之前的图例，
       > 在 CSR 的页面渲染流程中，首先要加载 HTML 文件，之后要下载页面所需的 JavaScript 文件，

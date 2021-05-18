@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="remove some post.&#10;add keytool command line usage.">
-      <change afterPath="$PROJECT_DIR$/source/_posts/前端面试刷题.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/前端面试刷题/csr.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/前端面试刷题/ssr 同构.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/前端面试刷题/ssr.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端面试刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEnd.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端面试刷题/csr.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEnd/csr.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端面试刷题/ssr 同构.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEnd/ssr 同构.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端面试刷题/ssr.png" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEnd/ssr.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +126,7 @@
       <workItem from="1610683107954" duration="596000" />
       <workItem from="1610685398628" duration="3589000" />
       <workItem from="1621224467399" duration="6810000" />
-      <workItem from="1621339349727" duration="2299000" />
+      <workItem from="1621339349727" duration="2552000" />
     </task>
     <task id="LOCAL-00001" summary="fix images">
       <created>1607515308728</created>
@@ -156,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610690197578</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="添加 前端面试刷题">
+      <created>1621347532122</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621347532122</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +185,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="fix images" />
     <MESSAGE value="remove some post.&#10;add keytool command line usage." />
-    <option name="LAST_COMMIT_MESSAGE" value="remove some post.&#10;add keytool command line usage." />
+    <MESSAGE value="添加 前端面试刷题" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加 前端面试刷题" />
   </component>
 </project>
