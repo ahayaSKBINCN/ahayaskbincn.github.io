@@ -20,8 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="remove some post.&#10;add keytool command line usage.">
-      <change afterPath="$PROJECT_DIR$/source/_posts/FontEndV2.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/FontEndV3.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/FontEndV3/webpack.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEnd.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEnd.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEndV2.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEndV2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +52,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/_posts/前端面试刷题" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/_posts/FontEndV3" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -59,6 +63,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/_posts/FontEndV3" />
       <recent name="$PROJECT_DIR$/source/_posts/前端面试刷题" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -68,19 +73,6 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.deploy">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -128,7 +120,11 @@
       <workItem from="1621339349727" duration="3646000" />
       <workItem from="1621402550776" duration="19000" />
       <workItem from="1621592116711" duration="849000" />
-      <workItem from="1621593016787" duration="4265000" />
+      <workItem from="1621593016787" duration="4625000" />
+      <workItem from="1621684885748" duration="227000" />
+      <workItem from="1621913657614" duration="459000" />
+      <workItem from="1621920137955" duration="454000" />
+      <workItem from="1621920728390" duration="1607000" />
     </task>
     <task id="LOCAL-00001" summary="fix images">
       <created>1607515308728</created>
@@ -193,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621350078518</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="添加 FontEndV2 : 添加 bind 方法实现">
+      <created>1621676828978</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1621676828978</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +222,7 @@
     <MESSAGE value="修改文件名称" />
     <MESSAGE value="删除 .gitignore 中的 lock.file 以修复 github Dependabot alerts: can't update vulnerable dependencies without a lockfile" />
     <MESSAGE value="删除 landscape 主题" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除 landscape 主题" />
+    <MESSAGE value="添加 FontEndV2 : 添加 bind 方法实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加 FontEndV2 : 添加 bind 方法实现" />
   </component>
 </project>
