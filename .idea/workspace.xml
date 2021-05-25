@@ -19,77 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="添加lockfile">
-      <change afterPath="$PROJECT_DIR$/themes/minos/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/_config.yml.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/languages/de.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/languages/en.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/languages/es.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/languages/fr.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/languages/ko.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/languages/pl.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/languages/ru.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/languages/zh-cn.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/languages/zh-tw.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/archive.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/categories.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/category.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/comment/changyan.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/comment/disqus.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/comment/facebook.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/comment/gitment.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/comment/isso.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/comment/livere.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/comment/valine.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/comment/youyan.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/common/article.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/common/footer.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/common/head.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/common/languages.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/common/navbar.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/common/paginator.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/common/scripts.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/index.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/layout.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/plugins/clipboard.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/plugins/gallery.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/plugins/google-analytics.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/plugins/katex.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/plugins/mathjax.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/post.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/search/google-cse.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/search/insight.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/share/addthis.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/share/sharethis.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/tag.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/layout/tags.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/lib/i18n.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/lib/rfc5646.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/scripts/01_check.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/scripts/10_i18n.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/scripts/99_config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/scripts/99_content.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/scripts/99_tags.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/source/css/insight.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/source/css/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/source/images/check.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/source/images/exclamation.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/source/images/info.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/source/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/source/images/question.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/source/images/quote-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/source/js/insight.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/minos/source/js/script.js" afterDir="false" />
+    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="替换主题, 添加依赖项">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/FontEnd.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEnd.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/FontEndV2.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEndV2.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/FontEndV3.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEndV3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/keep" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +133,7 @@
       <workItem from="1621684885748" duration="227000" />
       <workItem from="1621913657614" duration="459000" />
       <workItem from="1621920137955" duration="454000" />
-      <workItem from="1621920728390" duration="3389000" />
+      <workItem from="1621920728390" duration="4123000" />
     </task>
     <task id="LOCAL-00001" summary="fix images">
       <created>1607515308728</created>
@@ -300,7 +233,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621925681824</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="替换主题">
+      <created>1621933701864</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1621933701864</updated>
+    </task>
+    <task id="LOCAL-00016" summary="替换主题, 添加依赖项">
+      <created>1621934609147</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1621934609147</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,8 +274,9 @@
     <MESSAGE value="删除 .gitignore 中的 lock.file 以修复 github Dependabot alerts: can't update vulnerable dependencies without a lockfile" />
     <MESSAGE value="删除 landscape 主题" />
     <MESSAGE value="添加 FontEndV2 : 添加 bind 方法实现" />
-    <MESSAGE value="替换主题" />
     <MESSAGE value="添加lockfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加lockfile" />
+    <MESSAGE value="替换主题" />
+    <MESSAGE value="替换主题, 添加依赖项" />
+    <option name="LAST_COMMIT_MESSAGE" value="替换主题, 添加依赖项" />
   </component>
 </project>

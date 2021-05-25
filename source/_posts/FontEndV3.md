@@ -4,7 +4,7 @@ date: 2021-05-25 11:35:57
 tags: webpack
 ---
 ## 1. 基本架构
-![基本架构](./FontEndV3/webpack.jpeg "基本架构")
+![基本架构](webpack.jpeg "基本架构")
 1. 通过 `Yargs` 解析 `config` 和 `shell` 中的配置项。
 2. `webpack` 初始化过程, 首先通过 `options` 生成 `compiler`,
 然后初始化 `webpack` 内置插件及 `options` 配置。
