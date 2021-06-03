@@ -104,10 +104,8 @@ article:
   date_format: relative
 menu:
   Archives: /archives
-#  Lifestyle: /categories/LifeStyle
-#  Music: /categories/Music
-#  Technology: /categories/Technology
-#  About: /about
+  Categories: /categories
+  Technology: /tags
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
