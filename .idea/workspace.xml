@@ -19,9 +19,226 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="change theme">
+    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="add menus">
+      <change afterPath="$PROJECT_DIR$/themes/fluid/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/README_en.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/_config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/languages/de.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/languages/en.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/languages/eo.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/languages/ja.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/languages/zh-CN.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/languages/zh-TW.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/404.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/archive-list.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/beian.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/comments/changyan.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/comments/cusdis.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/comments/disqus.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/comments/gitalk.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/comments/livere.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/comments/remark42.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/comments/twikoo.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/comments/utterances.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/comments/valine.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/comments/waline.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/css.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/footer.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/head.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/nav.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/paginator.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/plugins/analytics.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/plugins/math.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/plugins/mermaid.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/plugins/nprogress.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/plugins/typed.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/post-meta.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/scripts.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/search.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/statistics.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/_partial/toc.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/about.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/archive.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/categories.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/category.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/index.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/layout.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/links.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/page.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/post.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/tag.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/layout/tags.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/events/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/events/lib/compatible-configs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/events/lib/footnote.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/events/lib/hello.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/events/lib/highlight.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/events/lib/lazyload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/events/lib/merge-configs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/filters/locals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/filters/post-filter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/generators/local-search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/generators/pages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/helpers/export-config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/helpers/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/helpers/url.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/helpers/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/helpers/wordcount.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/tags/button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/tags/checkbox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/tags/group-image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/tags/label.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/tags/mermaid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/tags/note.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/utils/join-path.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/scripts/utils/object.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_functions/base.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_mixins/base.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_about/about.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_archive/archive.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/_widget/banner.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/_widget/board.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/_widget/copy-btn.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/_widget/footer.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/_widget/footnote.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/_widget/header.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/_widget/qrcode.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/_widget/scroll-btn.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/_widget/search.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/base.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/color-schema.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/inline.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/keyframes.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_base/rewrite.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_category/categories.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_category/category.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_index/index.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_links/links.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_post/post.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_post/tag_plugin.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_tag/tag.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/_tag/tags.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_pages/pages.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/_variables/base.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/gitalk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/css/main.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/img/avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/img/default.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/img/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/img/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/img/police_beian.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/js/boot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/js/color-schema.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/js/events.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/js/img-lazyload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/js/leancloud.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/js/local-search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/js/plugins.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/js/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/lib/hint/hint.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/fluid/source/xml/local-search.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEnd.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEnd.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/profile.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/profile.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/themes/fluid/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/_config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/languages/default.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/languages/zh-CN.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/layout/_partial/head.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/layout/_partial/header.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/layout/_widget/archive.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/layout/_widget/category.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/layout/_widget/tag.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/layout/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/layout/layout.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/layout/post.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/css/_partial/font.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/css/_partial/header.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/css/_partial/post.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/css/_widget/aside.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/css/style.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/font/Lato-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/font/Lato-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/font/Lato-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/font/Lato-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/font/Lora-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/font/Lora-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/font/Lora-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/font/Lora-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/img/button-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/img/button.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/img/cover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/img/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/autumn/source/img/menu.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/_config.yml.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/languages/de.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/languages/en.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/languages/es.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/languages/fr.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/languages/ko.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/languages/pl.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/languages/ru.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/languages/zh-cn.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/languages/zh-tw.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/archive.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/categories.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/category.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/comment/changyan.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/comment/disqus.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/comment/facebook.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/comment/gitment.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/comment/isso.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/comment/livere.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/comment/valine.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/comment/youyan.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/common/article.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/common/footer.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/common/head.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/common/languages.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/common/navbar.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/common/paginator.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/common/scripts.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/layout.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/plugins/clipboard.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/plugins/gallery.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/plugins/google-analytics.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/plugins/katex.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/plugins/mathjax.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/post.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/search/google-cse.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/search/insight.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/share/addthis.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/share/sharethis.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/tag.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/layout/tags.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/lib/i18n.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/lib/rfc5646.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/scripts/01_check.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/scripts/10_i18n.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/scripts/99_config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/scripts/99_content.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/scripts/99_tags.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/source/css/insight.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/source/css/style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/source/images/check.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/source/images/exclamation.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/source/images/info.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/source/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/source/images/question.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/source/images/quote-left.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/source/js/insight.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/minos/source/js/script.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +265,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/_posts/FontEndV3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes/fluid" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -59,6 +276,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/themes/fluid" />
       <recent name="$PROJECT_DIR$/source/_posts/FontEndV3" />
       <recent name="$PROJECT_DIR$/themes" />
       <recent name="$PROJECT_DIR$/source/_posts/前端面试刷题" />
@@ -145,7 +363,7 @@
       <workItem from="1621920137955" duration="454000" />
       <workItem from="1621920728390" duration="4421000" />
       <workItem from="1621997685395" duration="1329000" />
-      <workItem from="1622718894214" duration="6590000" />
+      <workItem from="1622718894214" duration="8027000" />
     </task>
     <task id="LOCAL-00001" summary="fix images">
       <created>1607515308728</created>
@@ -287,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622726039460</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add menus">
+      <created>1622726660958</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1622726660958</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,6 +545,7 @@
     <MESSAGE value="修复图片加载失败" />
     <MESSAGE value="add profile" />
     <MESSAGE value="change theme" />
-    <option name="LAST_COMMIT_MESSAGE" value="change theme" />
+    <MESSAGE value="add menus" />
+    <option name="LAST_COMMIT_MESSAGE" value="add menus" />
   </component>
 </project>

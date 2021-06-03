@@ -1,7 +1,9 @@
 ---
 title: profile
 date: 2021-06-03 19:15:22
-tags: profile resume
+tags: 
+- profile 
+- resume
 ---
 | | | |
 |---|---|---|

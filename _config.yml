@@ -93,19 +93,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: minos
+theme: fluid
 
-article:
-  # Show word count and estimated reading time.
-  readtime: true
-  # Code highlight theme, please see https://highlightjs.org/static/demo/
-  highlight: atom-one-light
-  # Date format: relative | full | relative_full | full_relative
-  date_format: relative
-menu:
-  Archives: /archives
-  Categories: /categories
-  Technology: /tags
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
