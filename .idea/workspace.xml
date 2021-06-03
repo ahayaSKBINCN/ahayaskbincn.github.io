@@ -19,12 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="修复图片加载失败">
-      <change afterPath="$PROJECT_DIR$/source/_posts/FontEndV3/loadersVsPlugins.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/profile.md" afterDir="false" />
+    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="add profile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/FontEnd.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEnd.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/FontEndV3.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEndV3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +123,7 @@
       <workItem from="1621920137955" duration="454000" />
       <workItem from="1621920728390" duration="4421000" />
       <workItem from="1621997685395" duration="1329000" />
-      <workItem from="1622718894214" duration="5568000" />
+      <workItem from="1622718894214" duration="5664000" />
     </task>
     <task id="LOCAL-00001" summary="fix images">
       <created>1607515308728</created>
@@ -247,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621935178444</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="add profile">
+      <created>1622725216116</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1622725216116</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +282,7 @@
     <MESSAGE value="替换主题" />
     <MESSAGE value="替换主题, 添加依赖项" />
     <MESSAGE value="修复图片加载失败" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复图片加载失败" />
+    <MESSAGE value="add profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="add profile" />
   </component>
 </project>
