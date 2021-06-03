@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="替换主题, 添加依赖项">
+    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="修复图片加载失败">
+      <change afterPath="$PROJECT_DIR$/source/_posts/FontEndV3/loadersVsPlugins.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/profile.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/FontEnd.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEnd.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/FontEndV3.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEndV3.md" afterDir="false" />
@@ -49,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/_posts/FontEndV3" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -60,8 +62,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/themes" />
       <recent name="$PROJECT_DIR$/source/_posts/FontEndV3" />
+      <recent name="$PROJECT_DIR$/themes" />
       <recent name="$PROJECT_DIR$/source/_posts/前端面试刷题" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -71,17 +73,6 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.deploy">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -133,7 +124,9 @@
       <workItem from="1621684885748" duration="227000" />
       <workItem from="1621913657614" duration="459000" />
       <workItem from="1621920137955" duration="454000" />
-      <workItem from="1621920728390" duration="4123000" />
+      <workItem from="1621920728390" duration="4421000" />
+      <workItem from="1621997685395" duration="1329000" />
+      <workItem from="1622718894214" duration="5568000" />
     </task>
     <task id="LOCAL-00001" summary="fix images">
       <created>1607515308728</created>
@@ -247,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621934609147</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="修复图片加载失败">
+      <created>1621935178444</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1621935178444</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +277,7 @@
     <MESSAGE value="添加lockfile" />
     <MESSAGE value="替换主题" />
     <MESSAGE value="替换主题, 添加依赖项" />
-    <option name="LAST_COMMIT_MESSAGE" value="替换主题, 添加依赖项" />
+    <MESSAGE value="修复图片加载失败" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复图片加载失败" />
   </component>
 </project>
