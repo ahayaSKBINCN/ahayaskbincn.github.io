@@ -41,7 +41,14 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true #资源文件
+
+#资源文件
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
+#资源文件
+
 relative_link: false
 future: true
 highlight:

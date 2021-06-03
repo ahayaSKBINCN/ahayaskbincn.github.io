@@ -4,7 +4,7 @@ date: 2021-05-25 11:35:57
 tags: webpack
 ---
 ## 1. 基本架构
-![基本架构](./FontEndV3/webpack.jpeg "基本架构")
+![基本架构](./webpack.jpeg "基本架构")
 1. 通过 `Yargs` 解析 `config` 和 `shell` 中的配置项。
 2. `webpack` 初始化过程, 首先通过 `options` 生成 `compiler`,
 然后初始化 `webpack` 内置插件及 `options` 配置。
@@ -19,4 +19,4 @@ tags: webpack
 `While loaders are used to transform certain types of modules, 
   plugins can be leveraged to perform a wider range of tasks like bundle optimization, asset management and injection of environment variables. `
   翻译过来就是：相对于 `loaders` 用于对某个特定的类型的模块的转换，`plugins`应对的任务更加广泛，例如 `打包优化`，`文件管理`，`注入环境变量` 等等.
-  ![loadersVsPlugins](./FontEndV3/loadersVsPlugins.png "webpack 中 loaders 和 plugins 的区别")
+  ![loadersVsPlugins](./loadersVsPlugins.png "webpack 中 loaders 和 plugins 的区别")
