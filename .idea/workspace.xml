@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="修复图片">
+    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="删除 about 路径&#10;修改 列表&#10;添加 category 分类 菜单">
       <change afterPath="$PROJECT_DIR$/source/_posts/LRU缓存函数.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/source/_posts/bind方法的实现.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/source/_posts/http2相关资料.md" afterDir="false" />
@@ -165,7 +165,7 @@
       <workItem from="1621920137955" duration="454000" />
       <workItem from="1621920728390" duration="4421000" />
       <workItem from="1621997685395" duration="1329000" />
-      <workItem from="1622718894214" duration="10874000" />
+      <workItem from="1622718894214" duration="10969000" />
     </task>
     <task id="LOCAL-00001" summary="fix images">
       <created>1607515308728</created>
@@ -328,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622730551244</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="删除 about 路径&#10;修改 列表&#10;添加 category 分类 菜单">
+      <created>1622807419819</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1622807419819</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,6 +370,7 @@
     <MESSAGE value="add menus" />
     <MESSAGE value="change theme" />
     <MESSAGE value="修复图片" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复图片" />
+    <MESSAGE value="删除 about 路径&#10;修改 列表&#10;添加 category 分类 菜单" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除 about 路径&#10;修改 列表&#10;添加 category 分类 菜单" />
   </component>
 </project>
