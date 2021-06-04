@@ -19,11 +19,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="change theme">
+    <list default="true" id="8597f860-3d2b-41cf-a53f-cd34990b0729" name="Default Changelist" comment="修复图片">
+      <change afterPath="$PROJECT_DIR$/source/_posts/LRU缓存函数.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/bind方法的实现.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/http2相关资料.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/reactssr使用场景.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/webpackPlugin概述.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/实现compose.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/节流和防抖.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/FontEnd.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEnd.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/FontEndV3.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/FontEndV3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scaffolds/post.md" beforeDir="false" afterPath="$PROJECT_DIR$/scaffolds/post.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEnd.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEnd/csr.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/reactssr使用场景/csr.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEnd/ssr 同构.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/reactssr使用场景/ssr 同构.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEnd/ssr.png" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/reactssr使用场景/ssr.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEndV2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEndV3.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/webpack的构建流程.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEndV3/loadersVsPlugins.png" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/webpack的构建流程/loadersVsPlugins.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FontEndV3/webpack.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/webpack的构建流程/webpack.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/keytool.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/keytool.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/profile.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/profile.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/fluid/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/fluid/_config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +165,7 @@
       <workItem from="1621920137955" duration="454000" />
       <workItem from="1621920728390" duration="4421000" />
       <workItem from="1621997685395" duration="1329000" />
-      <workItem from="1622718894214" duration="8602000" />
+      <workItem from="1622718894214" duration="10874000" />
     </task>
     <task id="LOCAL-00001" summary="fix images">
       <created>1607515308728</created>
@@ -304,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622729788814</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="修复图片">
+      <created>1622730551244</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1622730551244</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,6 +362,7 @@
     <MESSAGE value="add profile" />
     <MESSAGE value="add menus" />
     <MESSAGE value="change theme" />
-    <option name="LAST_COMMIT_MESSAGE" value="change theme" />
+    <MESSAGE value="修复图片" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复图片" />
   </component>
 </project>

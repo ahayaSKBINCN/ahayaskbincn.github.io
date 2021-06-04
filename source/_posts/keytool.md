@@ -3,7 +3,8 @@ title: keytool
 date: 2021-01-15 13:20:03  
 tags:
 - Android 
-- Keytool
+- Keytool 
+categories: Android
 ---
 
 ## 写在开头

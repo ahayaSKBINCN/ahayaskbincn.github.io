@@ -1,10 +1,14 @@
 ---
-title: 前端面试刷题2 
-date: 2021-05-22 15:11:56 
-tags: 前端
+title: bind方法的实现
+date: 2021-06-04 19:20:52
+tags: 
+- 前端
+- javascript
+categories: 
+- 前端
+- javascript
 ---
-
-1. `bind` 方法的实现；
++ `bind` 方法的实现；
 
 ```javascript
 const obj = {};
@@ -50,7 +54,7 @@ Function.prototype.bindFn = function (thisArg) {
 }
 ```
 
-2. 用 new 关键字实例化 bound 函数的结果是什么？
++ 用 new 关键字实例化 bound 函数的结果是什么？
 
 + `new` 关键字都做了什么 ？
     1. 创建一个全新的对象
@@ -112,6 +116,3 @@ Function.prototype.bindFn = function (thisArg) {
     return bound;
 }
 ```
-
-
-

@@ -1,7 +1,12 @@
 ---
 title: webpack 的构建流程
 date: 2021-05-25 11:35:57
-tags: webpack
+tags: 
+- webpack
+- 前端
+categories:
+- 前端
+- webpack
 ---
 ## 1. 基本架构
 ![基本架构](./webpack.jpeg "基本架构")
