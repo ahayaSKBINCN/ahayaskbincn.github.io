@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>webpackPlugin概述</title>
+    <link href="/2021/06/04/webpackPlugin%E6%A6%82%E8%BF%B0/"/>
+    <url>/2021/06/04/webpackPlugin%E6%A6%82%E8%BF%B0/</url>
+    
+    <content type="html"><![CDATA[<ul><li>webpack plugin 的原理是什么<blockquote><ul><li>在 webpack 中，专注于处理 webpack 在编译过程中的某个特定的任务的功能模块，可以称为插件。</li><li><code>plugin</code> 和 <code>loader</code> 的区别：<ul><li>loader 是一个转换器，将 A 文件进行编译成 B 文件，比如：将 A.less 转换为 A.css，单纯的文件转换过程。<br>   webpack 自身只支持 js 和 json 这两种格式的文件，对于其他文件需要通过 loader 将其转换为 commonJS 规范的文件后，webpack 才能解析到。</li><li>plugin 是一个扩展器，它丰富了 webpack 本身，针对是 loader 结束后，<br>webpack 打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听 webpack 打包过程中的某些节点<br>执行广泛的任务。</li></ul></li></ul></blockquote></li></ul><ul><li><a href="https://segmentfault.com/a/1190000038338386" target="_blank" rel="noopener">参考资料</a><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloPlugin</span> </span>&#123;<br>  <span class="hljs-comment">// 在构造函数中获取用户给该插件传入的配置</span><br>  <span class="hljs-keyword">constructor</span>(options) &#123;&#125;<br>  <span class="hljs-comment">// Webpack 会调用 HelloPlugin 实例的 apply 方法给插件实例传入 compiler 对象</span><br>  apply(compiler) &#123;<br>    <span class="hljs-comment">// 在emit阶段插入钩子函数，用于特定时机处理额外的逻辑；</span><br>    compiler.hooks.emit.tap(<span class="hljs-string">'HelloPlugin'</span>, (compilation) =&gt; &#123;<br>      <span class="hljs-comment">// 在功能流程完成后可以调用 webpack 提供的回调函数；</span><br>    &#125;)<br>    <span class="hljs-comment">// 如果事件是异步的，会带两个参数，第二个参数为回调函数，</span><br>    compiler.plugin(<span class="hljs-string">'emit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">compilation, callback</span>) </span>&#123;<br>      <span class="hljs-comment">// 处理完毕后执行 callback 以通知 Webpack</span><br>      <span class="hljs-comment">// 如果不执行 callback，运行流程将会一直卡在这不往下执行</span><br>      callback()<br>    &#125;)<br>  &#125;<br>&#125;<br><br><span class="hljs-built_in">module</span>.exports = HelloPlugin<br></code></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>webpack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>webpack plugin</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>实现compose</title>
+    <link href="/2021/06/04/%E5%AE%9E%E7%8E%B0compose/"/>
+    <url>/2021/06/04/%E5%AE%9E%E7%8E%B0compose/</url>
+    
+    <content type="html"><![CDATA[<ul><li>实现一个 compose 函数<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// lodash.flow</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">flow</span>(<span class="hljs-params">...funcs</span>) </span>&#123;<br>    <span class="hljs-keyword">const</span> length = funcs.length<br>    <span class="hljs-keyword">let</span> index = length<br>    <span class="hljs-keyword">while</span> (index--) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> funcs[index] !== <span class="hljs-string">'function'</span>) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">'Expected a function'</span>)<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>&#123;<br>        <span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">let</span> result = length ? funcs[index].apply(<span class="hljs-keyword">this</span>, args) : args[<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">while</span> (++index &lt; length) &#123;<br>            result = funcs[index].call(<span class="hljs-keyword">this</span>, result)<br>        &#125;<br>        <span class="hljs-keyword">return</span> result<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>javascript</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>javascript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>http2相关资料</title>
+    <link href="/2021/06/04/http2%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99/"/>
+    <url>/2021/06/04/http2%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99/</url>
+    
+    <content type="html"><![CDATA[<ul><li>http2 的相关特性<blockquote><ul><li>二进制分帧</li><li>多路复用</li><li>服务器推送</li><li>头部压缩</li></ul></blockquote></li></ul><ol start="4"><li>viewport 与 移动端布局方案<blockquote><ul><li>layout viewport 布局视图</li><li>visual viewport 可视视窗</li><li>ideal viewport 理想视窗</li><li><a href="https://juejin.cn/post/6844903926450356231" target="_blank" rel="noopener">参考资料</a></li></ul></blockquote></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>http2</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>节流和防抖</title>
+    <link href="/2021/06/04/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/"/>
+    <url>/2021/06/04/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/</url>
+    
+    <content type="html"><![CDATA[<ul><li>写个防抖和节流函数。</li></ul><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// 防抖函数</span><br><span class="hljs-keyword">type</span> Callback = <span class="hljs-function">(<span class="hljs-params">...args:<span class="hljs-built_in">any</span>[]</span>)=&gt;</span> <span class="hljs-built_in">void</span>;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span>(<span class="hljs-params">cb: Callback, delay: <span class="hljs-built_in">number</span></span>)</span>&#123;<br>  <span class="hljs-keyword">let</span> timer;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">const</span> _this = <span class="hljs-keyword">this</span>;<br>    <span class="hljs-keyword">const</span> _args = args;<br>    <span class="hljs-keyword">if</span>(!timer)&#123;<br>      setTimeout(cb.call(_this, ..._args), delay);<br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>      clearTimeout(timer);<br>      timer = setTimeout(cb.call(_this, ..._args), delay);<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// 节流函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">throttle</span>(<span class="hljs-params">cb: Callback, delay: <span class="hljs-built_in">number</span></span>)</span>&#123;<br>  <span class="hljs-keyword">let</span> timer;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">const</span> _this = <span class="hljs-keyword">this</span>;<br>    <span class="hljs-keyword">const</span> _args = <span class="hljs-built_in">arguments</span>;<br>    <span class="hljs-keyword">if</span>(timer)&#123;<br>      <span class="hljs-keyword">return</span>;<br>    &#125;<span class="hljs-keyword">else</span> &#123;<br>      timer = setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>        cb.apply(_this, _args)<br>        timer = <span class="hljs-literal">null</span>;<br>      &#125;,delay)<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>javascript</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>javascript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LRU缓存函数</title>
+    <link href="/2021/06/04/LRU%E7%BC%93%E5%AD%98%E5%87%BD%E6%95%B0/"/>
+    <url>/2021/06/04/LRU%E7%BC%93%E5%AD%98%E5%87%BD%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<ul><li>写一个LRU 缓存函数。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LRUCache</span> </span>&#123;<br>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DLinkedNode</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> key;<br>        <span class="hljs-keyword">int</span> value;<br>        DLinkedNode pre;<br>        DLinkedNode next;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DLinkedNode</span><span class="hljs-params">()</span></span>&#123;&#125;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DLinkedNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key, <span class="hljs-keyword">int</span> value)</span></span>&#123;<br>            <span class="hljs-keyword">this</span>.key = key;<br>            <span class="hljs-keyword">this</span>.value = value;<br>        &#125;<br>    &#125;   <br>    <span class="hljs-keyword">private</span> Map&lt;Integer, DLinkedNode&gt; cache = <span class="hljs-keyword">new</span> Map();<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> size;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> capacity;<br>    <span class="hljs-keyword">private</span> DLinkedNode head, tail;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LRUCache</span><span class="hljs-params">(<span class="hljs-keyword">int</span> capacity)</span></span>&#123;<br>        <span class="hljs-keyword">this</span>.size = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">this</span>.capacity =capacity;<br>        <br>        <span class="hljs-comment">// 使用伪头部和伪尾部节点</span><br>        head = <span class="hljs-keyword">new</span> DLinkedNode();<br>        tail = <span class="hljs-keyword">new</span> DLinkedNode();<br>        head.next = tail;<br>        tail.pre = head;<br>    &#125;<br>   <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span></span>&#123; <br>        DLinkedNode node = cache.get(key);<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-keyword">null</span>)&#123;<br>            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-comment">// 如果 key 存在，先通过哈希表定位，再移到头部</span><br>        moveToHead(node);<br>        <span class="hljs-keyword">return</span> node.value;<br>    &#125;<br>   <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key, <span class="hljs-keyword">int</span> value)</span></span>&#123;<br>        DLinkedNode node = cache.get(key);<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-keyword">null</span>)&#123;<br>            DLinkNode newNode = <span class="hljs-keyword">new</span> DLinkNode(key, value);<br>            cache.put(key, newNode);<br>            ++ size;<br>            <span class="hljs-keyword">if</span>(size &gt; capacity) &#123;<br>                DLinkedNode tail = removeTail();<br>                cache.remove(tail.key);<br>                moveToHead(node);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addToHead</span><span class="hljs-params">(DLinkedNode node)</span></span>&#123;<br>        node.pre = head;<br>        node.next = head.next;<br>        head.next.pre = node;<br>        head.next = node;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">removeNode</span><span class="hljs-params">(DLinkedNode node)</span></span>&#123;<br>        node.pre.next = node.next;<br>        node.next.pre = node.pre;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">moveToHead</span><span class="hljs-params">(DLinkedNode node)</span></span>&#123;<br>        removeNode(node);<br>        addToHead(node);<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">private</span> DLinkedNode <span class="hljs-title">removeTail</span><span class="hljs-params">()</span></span>&#123;<br>        DLinkedNode res = tail.pre;<br>        removeNode(res);<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>bind方法的实现</title>
+    <link href="/2021/06/04/bind%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <url>/2021/06/04/bind%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0/</url>
+    
+    <content type="html"><![CDATA[<ul><li><code>bind</code> 方法的实现；</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> obj = &#123;&#125;;<br><span class="hljs-built_in">console</span>.log(obj); <span class="hljs-comment">// &#123;&#125;</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Function</span>.prototype.bind); <span class="hljs-comment">// function</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Function</span>.prototype.bind()); <span class="hljs-comment">// function</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Function</span>.prototype.bind.name); <span class="hljs-comment">// bind</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Function</span>.prototype.bind().name); <span class="hljs-comment">// bound</span><br><span class="hljs-comment">/******************************************</span><br><span class="hljs-comment"> * bind 函数调用之后返回 bound 函数</span><br><span class="hljs-comment"> ******************************************/</span><br><span class="hljs-keyword">const</span> obj1 = &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">'spring'</span>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">original</span>(<span class="hljs-params">a, b</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name);<br>    <span class="hljs-built_in">console</span>.log(a, b);<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-keyword">const</span> bound = original.bind(obj1, <span class="hljs-string">'first'</span>, <span class="hljs-number">2</span>);<br><span class="hljs-built_in">console</span>.log(bound.name); <span class="hljs-comment">// bound original</span><br><span class="hljs-built_in">console</span>.log(bound()); <span class="hljs-comment">// spring, ['first', 2], false</span><br><span class="hljs-built_in">console</span>.log(bound.length); <span class="hljs-comment">// 0</span><br><span class="hljs-built_in">console</span>.log(original.length); <span class="hljs-comment">// 2</span><br><br><span class="hljs-comment">/*****************************************</span><br><span class="hljs-comment"> * 自定义 bind 函数</span><br><span class="hljs-comment"> *****************************************/</span><br><span class="hljs-built_in">Function</span>.prototype.bindFn = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">thisArg</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-keyword">this</span> !== <span class="hljs-string">"function"</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-keyword">this</span> + <span class="hljs-string">` must be a function`</span>);<br>    &#125;<br>    <span class="hljs-comment">// 保存 this 指针</span><br>    <span class="hljs-keyword">const</span> self = <span class="hljs-keyword">this</span>;<br>    <span class="hljs-comment">// 除去 thisArg 其余转换成 args</span><br>    <span class="hljs-keyword">const</span> args = [].slice.call(<span class="hljs-built_in">arguments</span>, <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">const</span> bound = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-comment">// 将参数转换成 boundArgs</span><br>        <span class="hljs-keyword">const</span> boundArgs = [].slice.call(<span class="hljs-built_in">arguments</span>);<br>        <span class="hljs-keyword">return</span> self.apply(thisArg, args.concat(boundArgs));<br>    &#125;<br>    <span class="hljs-keyword">return</span> bound;<br>&#125;<br></code></pre></td></tr></table></figure><ul><li><p>用 new 关键字实例化 bound 函数的结果是什么？</p></li><li><p><code>new</code> 关键字都做了什么 ？</p><ol><li>创建一个全新的对象</li><li>这个对象会被执行 <code>[[Prototype]]</code>，也就是 <code>__proto__</code>链接</li><li>生成的新对象会绑定到函数调用的<code>this</code></li><li>通过 <code>new</code> 创建的每一个对象将最终被 <code>[[Prototype]]</code>链接到这个函数的<code>prototype</code>对象上</li><li>如果一个函数没有返回对象 <code>Function, Object, Array, Date, RegExp, Error</code>, 那么通过 <code>new</code> 调用的函数将会自动返回这个新的对象。</li></ol></li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> obj = &#123;<br>    name: <span class="hljs-string">'spring'</span>,<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">original</span>(<span class="hljs-params">a, b</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'this'</span>, <span class="hljs-keyword">this</span>);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'typed this is'</span>, <span class="hljs-keyword">typeof</span> <span class="hljs-keyword">this</span>);<br>    <span class="hljs-keyword">this</span>.name = b;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'this.name is'</span>, <span class="hljs-keyword">this</span>.name);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'typed this is'</span>, <span class="hljs-keyword">this</span>);<br>    <span class="hljs-built_in">console</span>.log([a, b]);<br>&#125;<br><br><span class="hljs-keyword">const</span> bound = original.bind(obj, <span class="hljs-number">1</span>);<br><span class="hljs-keyword">const</span> instance = <span class="hljs-keyword">new</span> bound(<span class="hljs-number">2</span>);<br><span class="hljs-comment">// this &#123;name:"spring"&#125;, </span><br><span class="hljs-comment">// typed this is object, </span><br><span class="hljs-comment">// this.name is 2, </span><br><span class="hljs-comment">// typed this is &#123; name: 2 &#125;, </span><br><span class="hljs-comment">// [1,2]</span><br><br><span class="hljs-built_in">Function</span>.prototype.bindFn = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">thisArg</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-keyword">this</span> !== <span class="hljs-string">"function"</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-keyword">this</span> + <span class="hljs-string">" must be a function"</span>);<br>    &#125;<br>    <span class="hljs-keyword">const</span> self = <span class="hljs-keyword">this</span>;<br>    <span class="hljs-keyword">const</span> args = [].slice.call(<span class="hljs-built_in">arguments</span>, <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bound</span>(<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-keyword">const</span> boundArgs = [].slice.call(<span class="hljs-built_in">arguments</span>);<br>        <span class="hljs-keyword">const</span> finalArgs = args.concat(boundArgs);<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span> <span class="hljs-keyword">instanceof</span> bound) &#123;<br>            <span class="hljs-keyword">if</span> (self.prototype) &#123;<br>                <span class="hljs-comment">// ES5 中 bound.prototype = Object.create(self.prototype);</span><br>                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Empty</span>(<span class="hljs-params"></span>) </span>&#123;<br>                &#125;;<br>                Empty.prototype = self.prototype;<br>                bound.prototype = <span class="hljs-keyword">new</span> Empty();<br>            &#125;<br>            <span class="hljs-keyword">const</span> result = self.apply(<span class="hljs-keyword">this</span>, finalArgs)<br>            <span class="hljs-keyword">const</span> isObject = <span class="hljs-keyword">typeof</span> result === <span class="hljs-string">'object'</span> &amp;&amp; result !== <span class="hljs-literal">null</span>;<br>            <span class="hljs-keyword">const</span> isFunction = <span class="hljs-keyword">typeof</span> result === <span class="hljs-string">'function'</span>;<br>            <span class="hljs-keyword">if</span> (isObject || isFunction) &#123;<br>                <span class="hljs-keyword">return</span> result;<br>            &#125;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> self.apply(thisArg, finalArgs);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> bound;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>javascript</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>javascript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>profile</title>
+    <link href="/2021/06/03/profile/"/>
+    <url>/2021/06/03/profile/</url>
+    
+    <content type="html"><![CDATA[<table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>个人信息</strong></td><td>姓名：** <br> 性别：男 <br> 微信： aHVnaGJvZHk= <br> 邮箱：Y3h5eTUyMTUxNEBmb3htYWlsLmNvbQ== <br> 目前已离职</td><td></td></tr><tr><td><strong>技术栈</strong></td><td><code>React</code>、<code>React Native</code>、<code>Redux</code>、<code>mobx</code>、<code>webpack</code>会一点<code>Android</code>， 但是没有写过完整的<code>Android</code>项目，目前在研究 <code>Electron</code> 、<code>snowpack</code>和<code>concentjs</code>，期望后面能转<code>Android</code>。</td><td></td></tr><tr><td><strong>教育水平</strong></td><td>学历：专科</td><td></td></tr><tr><td><strong>工作经历</strong></td><td>有两年半的工作经验，参与项目一般前端代码量在百分之五十左右，部分项目只多不少。</td><td></td></tr><tr><td></td><td>上手的第一个项目是一个 <code>小区物业</code>，<code>商家</code>和<code>业主</code>的三方平台。最开始是写一些简单的页面，然后开始接触redux 和后端对接，然后写 React Native 。</td><td></td></tr><tr><td></td><td>第二个项目是一个 <code>医院监护仪项目</code> 大概就是将监护仪上的数据读取出来渲染到web页面上，实现一个监护仪心电图的数据大屏效果。采用<code>echartjs</code>+<code>socket.io</code>+<code>redux</code>。开始用的redux处理数据，后来发现数据量过大导致页面卡顿，后面把数据处理工作移交给<code>web-worker</code>处理。</td><td></td></tr><tr><td></td><td>第三个项目是 <code>招投标项目</code> 当时前端技术难点有两个 一个是 pdf大文件读取， 一个是 视频会议sdk 的集成。我处理pdf和一些其他的业务。</td><td></td></tr><tr><td></td><td>还有一些其他项目 web 表单，商城， 中后台管理端比较多。</td><td></td></tr><tr><td><strong>求职总结</strong></td><td>预期薪资 10~12k，坐标最好在成都，希望公司环境氛围融洽，同事们积极向上。</td><td></td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>resume</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>resume</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>webpack 的构建流程</title>
+    <link href="/2021/05/25/webpack%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/"/>
+    <url>/2021/05/25/webpack%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1-基本架构"><a href="#1-基本架构" class="headerlink" title="1. 基本架构"></a>1. 基本架构</h2><p><img src="./webpack.jpeg" srcset="/img/loading.gif" lazyload alt="基本架构" title="基本架构"></p><ol><li>通过 <code>Yargs</code> 解析 <code>config</code> 和 <code>shell</code> 中的配置项。</li><li><code>webpack</code> 初始化过程, 首先通过 <code>options</code> 生成 <code>compiler</code>,<br>然后初始化 <code>webpack</code> 内置插件及 <code>options</code> 配置。</li><li><code>run</code> 代表编译的开始，会构建 <code>compilation</code> 对象，用于存储这一次编译过程的所有数据。</li><li><code>make</code> 执行真正的编译构建过程，从入口文件开始，构建模块，直到所有模块创建结束。</li><li><code>seal</code> 生成 <code>chunks</code>，对 <code>chunks</code> 进行一系列的优化操作，并生成要输出的代码。</li><li><code>seal</code> 结束后，<code>Compilation</code> 实例的所有工作到此也全部结束，意味着一次构建过程已经结束。</li><li><code>emit</code> 被触发之后，<code>webpack</code> 会遍历 <code>compilation.assets</code>, 生成所有文件，然后触发任务点 <code>done</code>，结束构建流程。</li></ol><h2 id="2-webpack-中-loader-和-plugin"><a href="#2-webpack-中-loader-和-plugin" class="headerlink" title="2. webpack 中 loader 和 plugin"></a>2. <code>webpack</code> 中 <code>loader</code> 和 <code>plugin</code></h2><ul><li>官方解释<br><code>While loaders are used to transform certain types of modules, plugins can be leveraged to perform a wider range of tasks like bundle optimization, asset management and injection of environment variables.</code><br>翻译过来就是：相对于 <code>loaders</code> 用于对某个特定的类型的模块的转换，<code>plugins</code>应对的任务更加广泛，例如 <code>打包优化</code>，<code>文件管理</code>，<code>注入环境变量</code> 等等.<br><img src="./loadersVsPlugins.png" srcset="/img/loading.gif" lazyload alt="loadersVsPlugins" title="webpack 中 loaders 和 plugins 的区别"></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>webpack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>webpack</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>react ssr 的使用场景</title>
+    <link href="/2021/05/17/reactssr%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
+    <url>/2021/05/17/reactssr%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</url>
+    
+    <content type="html"><![CDATA[<ul><li>react ssr 的使用场景<blockquote><ul><li><strong>客户端渲染（CSR）</strong>页面初始加载的 HTML 页面中无网页展示内容，需要加载执行JavaScript 文件中的 React 代码，<br>通过 JavaScript 渲染生成页面，同时，JavaScript 代码会完成页面交互事件的绑定<br><img src="./csr.jpeg" srcset="/img/loading.gif" lazyload alt="Client Side Render" title="Client Side Render"></li><li><strong>服务端渲染（SSR）</strong>用户请求服务器，服务器上直接生成 HTML 内容并返回给浏览器。服务器端渲染来，页面的内容是由 Server 端生成的。<br>一般来说，服务器端渲染的页面交互能力有限，如果要实现复杂交互，还是要通过引入 JavaScript 文件来辅助实现。<br>服务器端渲染这个概念，适用于任何后端语言。<br><img src="./ssr.png" srcset="/img/loading.gif" lazyload alt="SSR" title="Server Side Render"></li><li><strong>同构</strong> 同构这个概念存在于 Vue，React 这些新型的前端框架中，同构实际上是客户端渲染和服务器端渲染的一个整合。<br>我们把页面的展示内容和交互写在一起，让代码执行两次。在服务器端执行一次，用于实现服务器端渲染，在客户端再执行一次，用于接管页面交互，详细流程可参考下图<br><img src="./ssr%20%E5%90%8C%E6%9E%84.jpeg" srcset="/img/loading.gif" lazyload alt="同构" title="同构"></li><li><strong>同构的优点（为什么会出现同构技术）</strong><ul><li>CSR 项目的 TTFP（Time To First Page）时间比较长，参考之前的图例，<br>在 CSR 的页面渲染流程中，首先要加载 HTML 文件，之后要下载页面所需的 JavaScript 文件，<br>然后 JavaScript 文件渲染生成页面。在这个渲染过程中至少涉及到两个 HTTP 请求周期，所以会有一定的耗时，<br>这也是为什么大家在低网速下访问普通的 React 或者 Vue 应用时，初始页面会有出现白屏的原因。</li><li>CSR 项目的 SEO 能力极弱，在搜索引擎中基本上不可能有好的排名。<br>因为目前大多数搜索引擎主要识别的内容还是 HTML，对 JavaScript 文件内容的识别都还比较弱。<br>如果一个项目的流量入口来自于搜索引擎，这个时候你使用 CSR 进行开发，就非常不合适了。<br><a href="https://zhuanlan.zhihu.com/p/47044039" target="_blank" rel="noopener">相关资料</a></li></ul></li></ul></blockquote></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>React</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>React</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>keytool</title>
+    <link href="/2021/01/15/keytool/"/>
+    <url>/2021/01/15/keytool/</url>
+    
+    <content type="html"><![CDATA[<h2 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h2><p>转载自：[Keytool命令详解]<a href="https://blog.csdn.net/zlfing/article/details/77648430" target="_blank" rel="noopener">https://blog.csdn.net/zlfing/article/details/77648430</a><br>转载自用，方便查找。</p><hr><p><code>Keytool</code> 是一个<code>Java</code> 数据证书的管理工具 ,Keytool 将<code>密钥（key）</code>和<code>证书（certificates）</code>存在一个称为<code>keystore</code>的文件中 在<code>keystore</code>里，包含两种数据：<br><code>密钥实体（Key entity）</code>——<code>密钥（secret key）</code>又或者是<code>私钥</code>和配对<code>公钥</code>（采用非对称加密）<br>可信任的证书实体（trusted certificate entries）——只包含<code>公钥</code></p><h3 id="ailas"><a href="#ailas" class="headerlink" title="ailas"></a>ailas</h3><hr><p><code>ailas</code> (别名) 每个keystore都关联这一个独一无二的alias，这个alias通常不区分大小写</p><h3 id="JDK中keytool-常用命令"><a href="#JDK中keytool-常用命令" class="headerlink" title="JDK中keytool 常用命令:"></a>JDK中<code>keytool</code> 常用命令:</h3><hr><h5 id="genkey"><a href="#genkey" class="headerlink" title="-genkey"></a>-genkey</h5><p>在用户主目录中创建一个默认文件”.keystore”,还会产生一个mykey的别名，mykey中包含用户的公钥、私钥和证书<br>(在没有指定生成位置的情况下,keystore会存在用户系统默认目录，如：对于window xp系统，会生成在系统的C:/Documents and Settings/UserName/文件名为“.keystore”)</p><h5 id="alias"><a href="#alias" class="headerlink" title="-alias"></a>-alias</h5><p>产生别名</p><h5 id="keystore"><a href="#keystore" class="headerlink" title="-keystore"></a>-keystore</h5><p>指定密钥库的名称(产生的各类信息将不在.keystore文件中)</p><h5 id="keyalg"><a href="#keyalg" class="headerlink" title="-keyalg"></a>-keyalg</h5><p>指定密钥的算法 (如 RSA  DSA（如果不指定默认采用DSA）)</p><h5 id="validity"><a href="#validity" class="headerlink" title="-validity"></a>-validity</h5><p>指定创建的证书有效期多少天</p><h5 id="keysize"><a href="#keysize" class="headerlink" title="-keysize"></a>-keysize</h5><p>指定密钥长度</p><h5 id="storepass"><a href="#storepass" class="headerlink" title="-storepass"></a>-storepass</h5><p>指定密钥库的密码(获取keystore信息所需的密码)</p><h5 id="keypass"><a href="#keypass" class="headerlink" title="-keypass"></a>-keypass</h5><p>指定别名条目的密码(私钥的密码)</p><h5 id="dname"><a href="#dname" class="headerlink" title="-dname"></a>-dname</h5><p>指定证书拥有者信息 例如：  “CN=名字与姓氏,OU=组织单位名称,O=组织名称,L=城市或区域名称,ST=州或省份名称,C=单位的两字母国家代码”</p><h5 id="list"><a href="#list" class="headerlink" title="-list"></a>-list</h5><p>显示密钥库中的证书信息<br><code>keytool -list -v -keystore 指定keystore -storepass 密码</code></p><h5 id="v"><a href="#v" class="headerlink" title="-v"></a>-v</h5><p>显示密钥库中的证书详细信息</p><h5 id="export"><a href="#export" class="headerlink" title="-export"></a>-export</h5><p>将别名指定的证书导出到文件<br><code>keytool -export -alias 需要导出的别名 -keystore 指定keystore -file 指定导出的证书位置及证书名称 -storepass 密码</code></p><h5 id="file"><a href="#file" class="headerlink" title="-file"></a>-file</h5><p>参数指定导出到文件的文件名</p><h5 id="delete"><a href="#delete" class="headerlink" title="-delete"></a>-delete</h5><p>删除密钥库中某条目<br><code>keytool -delete -alias 指定需删除的别  -keystore 指定keystore  -storepass 密码</code></p><h5 id="printcert"><a href="#printcert" class="headerlink" title="-printcert"></a>-printcert</h5><p>查看导出的证书信息<br><code>keytool -printcert -file yushan.crt</code></p><h5 id="keypasswd"><a href="#keypasswd" class="headerlink" title="-keypasswd"></a>-keypasswd</h5><p>修改密钥库中指定条目口令<br><code>keytool -keypasswd -alias 需修改的别名 -keypass 旧密码 -new  新密码  -storepass keystore密码  -keystore sage</code></p><h5 id="storepasswd"><a href="#storepasswd" class="headerlink" title="-storepasswd"></a>-storepasswd</h5><p>修改keystore口令<br><code>keytool -storepasswd -keystore e:/ahaya.keystore(需修改口令的keystore) -storepass 123456(原始密码) -new ahaya(新密码)</code></p><h5 id="import"><a href="#import" class="headerlink" title="-import"></a>-import</h5><p>将已签名数字证书导入密钥库<br><code>keytool -import -alias 指定导入条目的别名 -keystore 指定keystore -file 需导入的证书</code></p><hr><h3 id="下面是各选项的缺省值"><a href="#下面是各选项的缺省值" class="headerlink" title="下面是各选项的缺省值"></a>下面是各选项的缺省值</h3><p>-alias “mykey”</p><p>-keyalg “DSA”</p><p>-keysize 1024</p><p>-validity 90</p><p>-keystore 用户宿主目录中名为 .keystore 的文件</p><p>-file 读时为标准输入，写时为标准输出</p><hr><h4 id="1、keystore的生成："><a href="#1、keystore的生成：" class="headerlink" title="1、keystore的生成："></a>1、keystore的生成：</h4><p>分阶段生成：</p><p><code>keytool -genkey -alias ahaya(别名) -keypass ahaya(别名密码) -keyalg RSA(算法) -keysize 1024(密钥长度) -validity 365(有效期，天单位) -keystoree:/ahaya.keystore(指定生成证书的位置和证书名称) -storepass 123456(获取keystore信息的密码)</code>  </p><p>回车输入相关信息即可；</p><p>一次性生成：</p><p><code>keytool -genkey -alias ahaya -keypass ahaya -keyalg RSA -keysize 1024 -validity 365 -keystore  e:/ahaya.keystore -storepass 123456 -dname &quot;CN=(名字与姓氏), OU=(组织单位名称), O=(组织名称), L=(城市或区域名称), ST=(州或省份名称), C=(单位的两字母国家代码)&quot;</code>(中英文即可)</p><hr><h4 id="2、keystore信息的查看："><a href="#2、keystore信息的查看：" class="headerlink" title="2、keystore信息的查看："></a>2、keystore信息的查看：</h4><p><code>keytool -list  -v -keystore e:/keytool /ahaya.keystore -storepass 123456</code><br>显示内容：</p><hr><p>Keystore 类型： JKS<br>Keystore 提供者： SUN</p><p>您的 keystore 包含 1 输入</p><p>别名名称： ahaya<br>创建日期： 20020-1-15<br>项类型: PrivateKeyEntry<br>认证链长度： 1<br>认证 [1]:<br>所有者:CN=ahaya, OU=xx公司, O=xx协会, L=pzh, ST=sc, C=cn<br>签发人:CN=ahaya, OU=xx公司, O=xx协会, L=pzg, ST=sc, C=cn<br>序列号:4a6f29ed<br>有效期: Wed Jul 29 00:40:13 CST 2009 至Thu Jul 29 00:40:13 CST 2010<br>证书指纹:<br>MD5:A3:D7:D9:74:C3:50:7D:10:C9:C2:47:B0:33:90:45:C3<br>SHA1:2B:FC:9E:3A:DF:C6:C4:FB:87:B8:A0:C6:99:43:E9:4C:4A:E1:18:E8<br>签名算法名称:SHA1withRSA<br>版本: 3</p><hr><p>缺省情况下，-list 命令打印证书的 MD5 指纹。而如果指定了 -v 选项，将以可读格式打印证书，如果指定了 -rfc 选项，将以可打印的编码格式输出证书。</p><p><code>keytool -list  -rfc -keystore e:/ahaya.keystore -storepass 123456</code></p><p>显示：</p><hr><p>Keystore 类型： JKS<br>Keystore 提供者： SUN</p><p>您的 keystore 包含 1 输入</p><p>别名名称： yushan<br>创建日期： 2009-7-29<br>项类型: PrivateKeyEntry<br>认证链长度： 1<br>认证 [1]:<br>—–BEGIN CERTIFICATE—–<br>MIICSzCCAbSgAwIBAgIESm8p7TANBgkqhkiG9w0BAQUFADBqMQ8wDQYDVQQGDAbkuK3lm70xDzAN<br>BgNVBAgMBua5luWNlzEPMA0GA1UEBwwG5rmY5r2tMREwDwYDVQQKDAh4eOWNj+S8mjERMA8GA1UE<br>CwwIeHjlhazlj7gxDzANBgNVBAMTBnl1c2hhbjAeFw0wOTA3MjgxNjQwMTNaFw0xMDA3MjgxNjQw<br>MTNaMGoxDzANBgNVBAYMBuS4reWbvTEPMA0GA1UECAwG5rmW5Y2XMQ8wDQYDVQQHDAbmuZjmva0x<br>ETAPBgNVBAoMCHh45Y2P5LyaMREwDwYDVQQLDAh4eOWFrOWPuDEPMA0GA1UEAxMGeXVzaGFuMIGf<br>MA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCJoru1RQczRzTnBWxefVNspQBykS220rS8Y/oX3mZa<br>hjL4wLfOURzUuxxuVQR2jx7QI+XKME+DHQj9r6aAcLBCi/T1jwF8mVYxtpRuTzE/6KEZdhowEe70<br>liWLVE+hytLBHZ03Zhwcd6q5HUMu27du3MPQvqiwzTY7MrwIvQQ8iQIDAQABMA0GCSqGSIb3DQEB<br>BQUAA4GBAGoQQ1/FnTfkpQh+Ni6h3fZdn3sR8ZzDMbOAIYVLAhBb85XDJ8QZTarHbZMJcIdHxAl1<br>i08ct3E8U87V9t8GZFWVC4BFg/+zeFEv76SFpVE56iX7P1jpsu78z0m69hHlds77VJTdyfMSvtXv<br>sYHP3fxfzx9WyhipBwd8VPK/NgEP<br>—–END CERTIFICATE—–</p><hr><h4 id="3、证书的导出："><a href="#3、证书的导出：" class="headerlink" title="3、证书的导出："></a>3、证书的导出：</h4><p><code>keytool -export -alias yushan -keystore e:/yushan.keystore -file e:/yushan.crt(指定导出的证书位置及证书名称) -storepass 123456</code></p><h4 id="4、查看导出的证书信息"><a href="#4、查看导出的证书信息" class="headerlink" title="4、查看导出的证书信息"></a>4、查看导出的证书信息</h4><p><code>keytool -printcert -file ahaya.crt</code><br>显示：（在windows下可以双击ahaya.crt查看）</p><hr><p>所有者:CN=yushan, OU=xx公司, O=xx协会, L=湘潭, ST=湖南, C=中国<br>签发人:CN=yushan, OU=xx公司, O=xx协会, L=湘潭, ST=湖南, C=中国<br>序列号:4a6f29ed<br>有效期: Wed Jul 29 00:40:13 CST 2009 至Thu Jul 29 00:40:13 CST 2010<br>证书指纹:<br>MD5:A3:D7:D9:74:C3:50:7D:10:C9:C2:47:B0:33:90:45:C3<br>SHA1:2B:FC:9E:3A:DF:C6:C4:FB:87:B8:A0:C6:99:43:E9:4C:4A:E1:18:E8<br>签名算法名称:SHA1withRSA<br>版本: 3</p><hr><h4 id="5、证书的导入："><a href="#5、证书的导入：" class="headerlink" title="5、证书的导入："></a>5、证书的导入：</h4><p>准备一个导入的证书：<br><code>keytool -genkey -alias ahaya -keypass ahaya -keyalg RSA -keysize 1024 -validity 365 -keystore  e:/ahaya.keystore -storepass 123456 -dname &quot;CN=ahaya,OU=xx, O=xx, L=xx, ST=xx, C=xx&quot;</code>  </p><p><code>keytool -export -alias ahaya -keystore e:/ahaya.keystore -file e:/ahaya.crt -storepass 123456</code></p><p>ahaya.crt 加入到ahaya.keystore中：<br><code>keytool -import -alias ahaya(指定导入证书的别名，如果不指定默认为mykey,别名唯一，否则导入出错) -file e:/ahaya.crt -keystore e:/ahaya.keystore -storepass 123456</code></p><p><code>keytool -list  -v -keystore e:/keytool /ahaya.keystore -storepass 123456</code>  </p><p>显示：</p><hr><p>Keystore 类型： JKS<br>Keystore 提供者： SUN</p><p>您的 keystore 包含 2 输入</p><p>别名名称： ahaya<br>创建日期： 2021-1-15<br>项类型: PrivateKeyEntry<br>认证链长度： 1<br>认证 [1]:<br>所有者:CN=ahaya, OU=xx公司, O=xx协会, L=湘潭, ST=湖南, C=中国<br>签发人:CN=ahaya, OU=xx公司, O=xx协会, L=湘潭, ST=湖南, C=中国<br>序列号:4a6f29ed<br>有效期: Wed Jul 29 00:40:13 CST 2009 至Thu Jul 29 00:40:13 CST 2010<br>证书指纹:<br>MD5:A3:D7:D9:74:C3:50:7D:10:C9:C2:47:B0:33:90:45:C3<br>SHA1:2B:FC:9E:3A:DF:C6:C4:FB:87:B8:A0:C6:99:43:E9:4C:4A:E1:18:E8<br>签名算法名称:SHA1withRSA<br>版本: 3</p><hr><p>别名名称： ahaya<br>创建日期： 2020-1-15<br>输入类型： trustedCertEntry</p><p>所有者:CN=ahaya, OU=xx, O=xx, L=xx, ST=xx, C=xx<br>签发人:CN=ahaya, OU=xx, O=xx, L=xx, ST=xx, C=xx<br>序列号:4a6f2cd9<br>有效期: Wed Jul 29 00:52:41 CST 2009 至Thu Jul 29 00:52:41 CST 2010<br>证书指纹:<br>MD5:15:03:57:9B:14:BD:C5:50:21:15:47:1E:29:87:A4:E6<br>SHA1:C1:4F:8B:CD:5E:C2:94:77:B7:42:29:35:5C:BB:BB:2E:9E:F0:89:F5<br>签名算法名称:SHA1withRSA<br>版本: 3</p><hr><h4 id="6、证书条目的删除："><a href="#6、证书条目的删除：" class="headerlink" title="6、证书条目的删除："></a>6、证书条目的删除：</h4><p><code>keytool -delete -alias ahaya(指定需删除的别名) -keystore ahaya.keystore -storepass 123456</code></p><h4 id="7、证书条目口令的修改："><a href="#7、证书条目口令的修改：" class="headerlink" title="7、证书条目口令的修改："></a>7、证书条目口令的修改：</h4><p><code>keytool -keypasswd -alias ahaya(需要修改密码的别名) -keypass ahaya(原始密码) -new 123456(别名的新密码)  -keystore e:/yushan.keystore -storepass 123456</code></p><h4 id="8、keystore口令的修改："><a href="#8、keystore口令的修改：" class="headerlink" title="8、keystore口令的修改："></a>8、keystore口令的修改：</h4><p><code>keytool -storepasswd -keystore e:/yushan.keystore(需修改口令的keystore) -storepass 123456(原始密码) -new ahaya(新密码)</code></p><h4 id="9、修改keystore中别名为ahaya的信息"><a href="#9、修改keystore中别名为ahaya的信息" class="headerlink" title="9、修改keystore中别名为ahaya的信息"></a>9、修改keystore中别名为ahaya的信息</h4><p><code>keytool -selfcert -alias ahaya -keypass ahaya -keystore e:/ahaya.keystore -storepass 123456 -dname &quot;cn=ahaya,ou=ahaya,o=ahaya,c=cn&quot;</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Android</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Android</tag>
+      
+      <tag>Keytool</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
